@@ -68,27 +68,21 @@ body {
   display: inline-block;
   font-size: 12px; }
 
-.main-article {
-  margin-top: 25%;
-  float: left; }
-
-.main-articlebox {
-  float: left;
-  width: 40%;
-  height: 350px;
-  margin-left: 5%;
+.main-nextcard {
+  width: 25%;
+  height: 60px;
+  margin-left: 1%;
   margin-right: 5%;
-  border-color: #b3b3b3;
+  border-color: #black;
   border-style: solid;
   margin-bottom: 10%; }
-  .main-articlebox .main-innerbox {
-    background-color: #737373;
-    width: 98%;
-    height: 98%;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-top: 1%;
-    margin-bottom: 1%; }
+  .main-nextcard p {
+    margin-top: 0px;
+    padding: 3px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 2.3em;
+    margin-left: 10%; }
 
 .button-style {
   float: left;
