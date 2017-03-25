@@ -66,9 +66,9 @@
 	
 	var _ComponentOne2 = _interopRequireDefault(_ComponentOne);
 	
-	var _ComponentTwo = __webpack_require__(273);
+	var _SingleView = __webpack_require__(284);
 	
-	var _ComponentTwo2 = _interopRequireDefault(_ComponentTwo);
+	var _SingleView2 = _interopRequireDefault(_SingleView);
 	
 	var _reactRedux = __webpack_require__(235);
 	
@@ -89,7 +89,7 @@
 	            { path: '/', component: _AppContainer.AppContainer },
 	            _react2.default.createElement(_reactRouter.IndexRoute, { component: _HomeContainer2.default }),
 	            _react2.default.createElement(_reactRouter.Route, { path: '/componentone', component: _ComponentOne2.default }),
-	            _react2.default.createElement(_reactRouter.Route, { path: '/componenttwo', component: _ComponentTwo2.default })
+	            _react2.default.createElement(_reactRouter.Route, { path: '/componenttwo', component: _SingleView2.default })
 	        )
 	    )
 	), document.getElementById('app'));
@@ -19092,7 +19092,7 @@
 /* 152 */
 /***/ function(module, exports) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 	
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -19118,7 +19118,7 @@
 	 * @return {?DOMElement}
 	 */
 	function getActiveElement(doc) /*?DOMElement*/{
-	  doc = doc || document;
+	  doc = doc || global.document;
 	  if (typeof doc === 'undefined') {
 	    return null;
 	  }
@@ -19130,6 +19130,7 @@
 	}
 	
 	module.exports = getActiveElement;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 153 */
@@ -28851,16 +28852,6 @@
 	    'nav',
 	    { id: 'main-navbar' },
 	    _react2.default.createElement(
-	      'h3',
-	      { style: { float: 'left', marginLeft: '.8em' } },
-	      'Logo.',
-	      _react2.default.createElement(
-	        'font',
-	        { size: '1' },
-	        '\xAE'
-	      )
-	    ),
-	    _react2.default.createElement(
 	      'ul',
 	      null,
 	      _react2.default.createElement(
@@ -28878,7 +28869,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/componenttwo' },
-	          'Component Two'
+	          'SingleView'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -28936,36 +28927,7 @@
 	exports.default = Journal;
 
 /***/ },
-/* 273 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Portfolio = function Portfolio() {
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Component Two'
-	        )
-	    );
-	};
-	
-	exports.default = Portfolio;
-
-/***/ },
+/* 273 */,
 /* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28977,15 +28939,15 @@
 	
 	var _redux = __webpack_require__(244);
 	
-	var _rootReducer = __webpack_require__(282);
+	var _rootReducer = __webpack_require__(275);
 	
 	var _rootReducer2 = _interopRequireDefault(_rootReducer);
 	
-	var _reduxThunk = __webpack_require__(275);
+	var _reduxThunk = __webpack_require__(277);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reduxLogger = __webpack_require__(276);
+	var _reduxLogger = __webpack_require__(278);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
@@ -29001,6 +28963,31 @@
 
 /***/ },
 /* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _redux = __webpack_require__(244);
+	
+	var _drawings = __webpack_require__(286);
+	
+	var _drawings2 = _interopRequireDefault(_drawings);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({ drawings: _drawings2.default });
+
+/***/ },
+/* 276 */,
+/* 277 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29028,7 +29015,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29040,11 +29027,11 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _core = __webpack_require__(277);
+	var _core = __webpack_require__(279);
 	
-	var _helpers = __webpack_require__(278);
+	var _helpers = __webpack_require__(280);
 	
-	var _defaults = __webpack_require__(281);
+	var _defaults = __webpack_require__(283);
 	
 	var _defaults2 = _interopRequireDefault(_defaults);
 	
@@ -29162,9 +29149,11 @@
 	exports.defaults = _defaults2.default;
 	exports.logger = defaultLogger;
 	exports.default = createLogger;
+	module.exports = exports['default'];
+
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29177,9 +29166,9 @@
 	
 	exports.printBuffer = printBuffer;
 	
-	var _helpers = __webpack_require__(278);
+	var _helpers = __webpack_require__(280);
 	
-	var _diff = __webpack_require__(279);
+	var _diff = __webpack_require__(281);
 	
 	var _diff2 = _interopRequireDefault(_diff);
 	
@@ -29310,7 +29299,7 @@
 	}
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29334,7 +29323,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29344,7 +29333,7 @@
 	});
 	exports.default = diffLogger;
 	
-	var _deepDiff = __webpack_require__(280);
+	var _deepDiff = __webpack_require__(282);
 	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 	
@@ -29433,7 +29422,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -29862,7 +29851,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29913,7 +29902,64 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 282 */
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Frame = __webpack_require__(285);
+	
+	var _Frame2 = _interopRequireDefault(_Frame);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SingleView = function (_React$Component) {
+	    _inherits(SingleView, _React$Component);
+	
+	    function SingleView() {
+	        _classCallCheck(this, SingleView);
+	
+	        return _possibleConstructorReturn(this, (SingleView.__proto__ || Object.getPrototypeOf(SingleView)).apply(this, arguments));
+	    }
+	
+	    _createClass(SingleView, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            // paper.setup(this.canvas);
+	            // paper.project.importJSON(this.props.json);
+	            // paper.view.scale(0.57,[25,90]);
+	
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_Frame2.default, null);
+	        }
+	    }]);
+	
+	    return SingleView;
+	}(_react2.default.Component);
+	
+	exports.default = SingleView;
+
+/***/ },
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29922,22 +29968,177 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _redux = __webpack_require__(244);
-	
-	var _users = __webpack_require__(283);
-	
-	var _users2 = _interopRequireDefault(_users);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = (0, _redux.combineReducers)({ users: _users2.default });
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Frame = function (_React$Component) {
+	  _inherits(Frame, _React$Component);
+	
+	  function Frame(props) {
+	    _classCallCheck(this, Frame);
+	
+	    var _this = _possibleConstructorReturn(this, (Frame.__proto__ || Object.getPrototypeOf(Frame)).call(this, props));
+	
+	    _this.state = {
+	      selected: false,
+	      drawing: false
+	    };
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    _this.handleMouseDown = _this.handleMouseDown.bind(_this);
+	    _this.handleMouseUp = _this.handleMouseUp.bind(_this);
+	    _this.handleMouseMove = _this.handleMouseMove.bind(_this);
+	    _this.drawFrame = _this.drawFrame.bind(_this);
+	    _this.draw = _this.draw.bind(_this);
+	
+	    _this.scale = 5;
+	
+	    _this.currentMousePosition = {
+	      x: 0,
+	      y: 0
+	    };
+	
+	    _this.lastMousePosition = {
+	      x: 0,
+	      y: 0
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Frame, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.drawFrame();
+	    }
+	  }, {
+	    key: 'drawFrame',
+	    value: function drawFrame() {
+	      this.ctx = this.canvas.getContext('2d');
+	      this.ctx.save();
+	      this.ctx.translate(150, 100);
+	      this.ctx.rotate(Math.PI / 4);
+	      this.ctx.lineWidth = 5;
+	      this.ctx.strokeStyle = '#e5e5e5';
+	      this.ctx.strokeRect(0, 0, 130, 130);
+	      this.ctx.restore();
+	
+	      this.ctx.lineWidth = 3;
+	      this.ctx.strokeStyle = '#e5e5e5';
+	      this.ctx.moveTo(5, 5);
+	      this.ctx.lineTo(15, 15);
+	      this.ctx.stroke();
+	      this.ctx.moveTo(15, 5);
+	      this.ctx.lineTo(5, 15);
+	      this.ctx.stroke();
+	
+	      for (var col = 0; col < 3; col++) {
+	        for (var row = 0; row < 2; row++) {
+	          var y = row % 2 === 0 ? 345 : 295;
+	          var x = col * 50 + 5;
+	          if (col === 2 && row === 1) {
+	            break;
+	          }
+	          this.ctx.save();
+	          this.ctx.translate(x, y);
+	          this.ctx.lineWidth = 5;
+	          this.ctx.strokeStyle = '#e5e5e5';
+	          this.ctx.strokeRect(0, 0, 50, 50);
+	          this.ctx.restore();
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'draw',
+	    value: function draw(start, end) {
+	      var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'black';
+	
+	      this.ctx.beginPath();
+	      this.ctx.lineJoin = 'round';
+	      this.ctx.lineCap = 'round';
+	      this.ctx.lineWidth = 8;
+	      this.ctx.strokeStyle = color;
+	      this.ctx.moveTo(start.x, start.y);
+	      this.ctx.lineTo(end.x, end.y);
+	      this.ctx.closePath();
+	      this.ctx.stroke();
+	    }
+	  }, {
+	    key: 'handleMouseDown',
+	    value: function handleMouseDown(e) {
+	      this.setState({ drawing: true });
+	      this.currentMousePosition.x = (e.pageX - (this.canvas.offsetLeft - this.canvas.clientWidth * ((this.scale - 1) / 2))) * (this.canvas.width / this.canvas.clientWidth) / this.scale;
+	      this.currentMousePosition.y = (e.pageY - (this.canvas.offsetTop - this.canvas.clientHeight * ((this.scale - 1) / 2))) * (this.canvas.height / this.canvas.clientHeight) / this.scale;
+	    }
+	  }, {
+	    key: 'handleMouseUp',
+	    value: function handleMouseUp(e) {
+	      this.setState({ drawing: false });
+	    }
+	  }, {
+	    key: 'handleMouseMove',
+	    value: function handleMouseMove(e) {
+	      if (!this.state.drawing || !this.state.selected) return;
+	
+	      this.lastMousePosition.x = this.currentMousePosition.x;
+	      this.lastMousePosition.y = this.currentMousePosition.y;
+	
+	      this.currentMousePosition.x = (e.pageX - (this.canvas.offsetLeft - this.canvas.clientWidth * ((this.scale - 1) / 2))) * (this.canvas.width / this.canvas.clientWidth) / this.scale;
+	      this.currentMousePosition.y = (e.pageY - (this.canvas.offsetTop - this.canvas.clientHeight * ((this.scale - 1) / 2))) * (this.canvas.height / this.canvas.clientHeight) / this.scale;
+	
+	      this.draw(this.lastMousePosition, this.currentMousePosition);
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      e.preventDefault();
+	      if (!this.state.selected) {
+	
+	        this.setState({ selected: !this.state.selected });
+	      } else {
+	        console.log(this.currentMousePosition.x, this.currentMousePosition.y);
+	        if (this.currentMousePosition.x < 20 && this.currentMousePosition.y < 20) {
+	          this.zoom.reverse();
+	          this.setState({ selected: !this.state.selected });
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement('canvas', {
+	        onClick: this.handleClick,
+	        onMouseDown: this.handleMouseDown,
+	        onMouseUp: this.handleMouseUp,
+	        onMouseMove: this.handleMouseMove,
+	        className: 'frame shadow',
+	        width: '300px',
+	        height: '400px',
+	        ref: function ref(el) {
+	          _this2.canvas = el;
+	        }
+	      });
+	    }
+	  }]);
+	
+	  return Frame;
+	}(_react2.default.Component);
+	
+	exports.default = Frame;
 
 /***/ },
-/* 283 */
+/* 286 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29951,17 +30152,18 @@
 	  var action = arguments[1];
 	
 	  switch (action.type) {
-	    case ADD_USER:
-	      return Object.assign({}, state, { users: action.users });
+	    case SAVE_DRAWING:
+	      return Object.assign({}, state, { drawings: action.drawings });
 	    default:
 	      return state;
 	  }
 	};
 	
-	var ADD_USER = 'ADD_USER';
+	var SAVE_DRAWING = 'SAVE_DRAWING';
 	
+	//something
 	var initialState = {
-	  users: {}
+	  drawings: {}
 	};
 
 /***/ }
