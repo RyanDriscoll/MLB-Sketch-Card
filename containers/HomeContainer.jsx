@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../components/Navbar.jsx';
 
+
+
 class HomeContainer extends Component{
 constructor(props) {
     super(props);
