@@ -1,5 +1,5 @@
 import React from 'react';
 import { combineReducers } from 'redux'
-import users from './users';
+import drawings from './drawings';
 
-export default combineReducers({users});
+export default combineReducers({drawings});
