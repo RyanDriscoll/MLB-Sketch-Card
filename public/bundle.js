@@ -19092,7 +19092,7 @@
 /* 152 */
 /***/ function(module, exports) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 	
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -19118,7 +19118,7 @@
 	 * @return {?DOMElement}
 	 */
 	function getActiveElement(doc) /*?DOMElement*/{
-	  doc = doc || document;
+	  doc = doc || global.document;
 	  if (typeof doc === 'undefined') {
 	    return null;
 	  }
@@ -19130,6 +19130,7 @@
 	}
 	
 	module.exports = getActiveElement;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 153 */
@@ -28851,16 +28852,6 @@
 	    'nav',
 	    { id: 'main-navbar' },
 	    _react2.default.createElement(
-	      'h3',
-	      { style: { float: 'left', marginLeft: '.8em' } },
-	      'Logo.',
-	      _react2.default.createElement(
-	        'font',
-	        { size: '1' },
-	        '\xAE'
-	      )
-	    ),
-	    _react2.default.createElement(
 	      'ul',
 	      null,
 	      _react2.default.createElement(
@@ -28977,15 +28968,15 @@
 	
 	var _redux = __webpack_require__(244);
 	
-	var _rootReducer = __webpack_require__(282);
+	var _rootReducer = __webpack_require__(275);
 	
 	var _rootReducer2 = _interopRequireDefault(_rootReducer);
 	
-	var _reduxThunk = __webpack_require__(275);
+	var _reduxThunk = __webpack_require__(277);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reduxLogger = __webpack_require__(276);
+	var _reduxLogger = __webpack_require__(278);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
@@ -29001,6 +28992,58 @@
 
 /***/ },
 /* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _redux = __webpack_require__(244);
+	
+	var _users = __webpack_require__(276);
+	
+	var _users2 = _interopRequireDefault(_users);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _redux.combineReducers)({ users: _users2.default });
+
+/***/ },
+/* 276 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case ADD_USER:
+	      return Object.assign({}, state, { users: action.users });
+	    default:
+	      return state;
+	  }
+	};
+	
+	var ADD_USER = 'ADD_USER';
+	
+	var initialState = {
+	  users: {}
+	};
+
+/***/ },
+/* 277 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29028,7 +29071,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29040,11 +29083,11 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _core = __webpack_require__(277);
+	var _core = __webpack_require__(279);
 	
-	var _helpers = __webpack_require__(278);
+	var _helpers = __webpack_require__(280);
 	
-	var _defaults = __webpack_require__(281);
+	var _defaults = __webpack_require__(283);
 	
 	var _defaults2 = _interopRequireDefault(_defaults);
 	
@@ -29162,9 +29205,11 @@
 	exports.defaults = _defaults2.default;
 	exports.logger = defaultLogger;
 	exports.default = createLogger;
+	module.exports = exports['default'];
+
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29177,9 +29222,9 @@
 	
 	exports.printBuffer = printBuffer;
 	
-	var _helpers = __webpack_require__(278);
+	var _helpers = __webpack_require__(280);
 	
-	var _diff = __webpack_require__(279);
+	var _diff = __webpack_require__(281);
 	
 	var _diff2 = _interopRequireDefault(_diff);
 	
@@ -29310,7 +29355,7 @@
 	}
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29334,7 +29379,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29344,7 +29389,7 @@
 	});
 	exports.default = diffLogger;
 	
-	var _deepDiff = __webpack_require__(280);
+	var _deepDiff = __webpack_require__(282);
 	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 	
@@ -29433,7 +29478,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -29862,7 +29907,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29911,58 +29956,6 @@
 	  transformer: undefined
 	};
 	module.exports = exports["default"];
-
-/***/ },
-/* 282 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _redux = __webpack_require__(244);
-	
-	var _users = __webpack_require__(283);
-	
-	var _users2 = _interopRequireDefault(_users);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _redux.combineReducers)({ users: _users2.default });
-
-/***/ },
-/* 283 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case ADD_USER:
-	      return Object.assign({}, state, { users: action.users });
-	    default:
-	      return state;
-	  }
-	};
-	
-	var ADD_USER = 'ADD_USER';
-	
-	var initialState = {
-	  users: {}
-	};
 
 /***/ }
 /******/ ]);
